@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login_System {
 
@@ -70,10 +72,6 @@ public class Login_System {
 		frame.getContentPane().add(txt_Username);
 		txt_Username.setColumns(10);
 		
-		txt_Password = new JPasswordField();
-		txt_Password.setBounds(285, 200, 180, 20);
-		frame.getContentPane().add(txt_Password);
-		
 		JButton btn_Login = new JButton("Login");
 		btn_Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -93,6 +91,18 @@ public class Login_System {
 		});
 		btn_Login.setBounds(113, 327, 89, 23);
 		frame.getContentPane().add(btn_Login);
+		
+		txt_Password = new JPasswordField();
+		txt_Password.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+					btn_Login.doClick();
+				}
+			}
+		});
+		txt_Password.setBounds(285, 200, 180, 20);
+		frame.getContentPane().add(txt_Password);
 		
 		JButton btn_Reset = new JButton("Reset");
 		btn_Reset.addActionListener(new ActionListener() {
