@@ -14,6 +14,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class Login_System {
 
@@ -56,7 +58,7 @@ public class Login_System {
 		
 		JLabel lbl_LoginSystem = new JLabel("Login System");
 		lbl_LoginSystem.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lbl_LoginSystem.setBounds(285, 11, 118, 28);
+		lbl_LoginSystem.setBounds(267, 11, 118, 28);
 		frame.getContentPane().add(lbl_LoginSystem);
 		
 		JLabel lbl_Username = new JLabel("Username");
@@ -68,7 +70,7 @@ public class Login_System {
 		frame.getContentPane().add(lbl_Password);
 		
 		txt_Username = new JTextField();
-		txt_Username.setBounds(285, 110, 180, 20);
+		txt_Username.setBounds(241, 110, 180, 20);
 		frame.getContentPane().add(txt_Username);
 		txt_Username.setColumns(10);
 		
@@ -101,7 +103,7 @@ public class Login_System {
 				}
 			}
 		});
-		txt_Password.setBounds(285, 200, 180, 20);
+		txt_Password.setBounds(241, 200, 180, 20);
 		frame.getContentPane().add(txt_Password);
 		
 		JButton btn_Reset = new JButton("Reset");
@@ -135,5 +137,10 @@ public class Login_System {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(113, 50, 433, 2);
 		frame.getContentPane().add(separator_1);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Patient", "Nurse", "Doctor"}));
+		comboBox.setBounds(457, 109, 89, 22);
+		frame.getContentPane().add(comboBox);
 	}
 }
