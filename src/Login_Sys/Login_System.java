@@ -69,6 +69,11 @@ public class Login_System {
 		lbl_Password.setBounds(113, 203, 46, 14);
 		frame.getContentPane().add(lbl_Password);
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Patient", "Nurse", "Doctor"}));
+		comboBox.setBounds(457, 109, 89, 22);
+		frame.getContentPane().add(comboBox);
+		
 		txt_Username = new JTextField();
 		txt_Username.setBounds(241, 110, 180, 20);
 		frame.getContentPane().add(txt_Username);
@@ -78,10 +83,31 @@ public class Login_System {
 		btn_Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String password = txt_Password.getText();
 				String username = txt_Username.getText();
+				String password = txt_Password.getText();
+				String role = comboBox.getSelectedItem().toString();
 				
-				if (password.contains("password") && username.contains("admin")) {
+				User_Data user = new User_Data(username, password, role);
+				Test match = new Test();
+
+				System.out.println("Username: " + user.name);
+				System.out.println("Password: " + user.password);
+				System.out.println("UserRole: " + user.userRole);
+				
+				
+//				for (int i = 0; i < match.list.size(); i++) {
+//					System.out.println("List_Username: " + match.list.get(i).name);
+//					System.out.println("List_Password: " + match.list.get(i).password);
+//					System.out.println("List_Password: " + match.list.get(i).userRole);
+//					if ((match.list.get(i).name == user.name) && (match.list.get(i).password == user.password)) {
+//						txt_Password.setText(null);
+//					  	txt_Username.setText(null);
+//					} else {
+//						JOptionPane.showMessageDialog(null,  "Invalid Login Details", "Login Error", JOptionPane.ERROR_MESSAGE);
+//					}
+//				}
+				
+				if (match.list.contains(user)) {
 					txt_Password.setText(null);
 					txt_Username.setText(null);
 				}
@@ -89,8 +115,26 @@ public class Login_System {
 				else {
 					JOptionPane.showMessageDialog(null,  "Invalid Login Details", "Login Error", JOptionPane.ERROR_MESSAGE);
 				}
+				
+//				for (int i = 0; i < match.list.size(); i++) {
+//					System.out.println("List_Username: " + match.list.get(i).name);
+//					System.out.println("List_Password: " + match.list.get(i).password);
+//					System.out.println("List_Password: " + match.list.get(i).userRole);
+//					if (match.list.get(i).name == user.name) {
+//						System.out.println("Here");
+//						if (match.list.get(i).password == user.password) {
+//							txt_Password.setText(null);
+//							txt_Username.setText(null);
+//						}
+//					} else {
+//						JOptionPane.showMessageDialog(null,  "Invalid Login Details", "Login Error", JOptionPane.ERROR_MESSAGE);
+//					}
+//				}
+				
+
 			}
 		});
+		
 		btn_Login.setBounds(113, 327, 89, 23);
 		frame.getContentPane().add(btn_Login);
 		
@@ -138,9 +182,5 @@ public class Login_System {
 		separator_1.setBounds(113, 50, 433, 2);
 		frame.getContentPane().add(separator_1);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Patient", "Nurse", "Doctor"}));
-		comboBox.setBounds(457, 109, 89, 22);
-		frame.getContentPane().add(comboBox);
 	}
 }
