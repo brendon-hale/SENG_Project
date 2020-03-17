@@ -22,24 +22,6 @@ class User_Data {
 	public String getRole() {
 		return this.userRole;
 	}
-	
-	@Override
-		public boolean equals(Object obj) {
-			User_Data user = (User_Data) obj;
-			
-			System.out.println("Here");
-			
-			if (this.name != user.name) {
-				System.out.println("username is false");
-				return false;
-			}
-			if (this.password != user.password)
-				return false;
-			if (this.userRole != user.getRole())
-				return false;
-			
-			return true;
-		}
 }
 
 public class Test {
@@ -48,8 +30,9 @@ public class Test {
 	User_Data obj2 = new User_Data("Scuba Steve", "1234", "Patient");
 	User_Data obj3 = new User_Data("Max Powers", "password", "Nurse");
 	User_Data obj4 = new User_Data("Admin", "guest", "Administrator");
+	User_Data obj5 = new User_Data("Login", "1234", "Patient");
 	
-	ArrayList<User_Data> list = new ArrayList<>(Arrays.asList(obj1,obj2,obj3,obj4));
+	ArrayList<User_Data> list = new ArrayList<>(Arrays.asList(obj1,obj2,obj3,obj4,obj5));
 	
 	public ArrayList<User_Data> getList() {
 		return list;

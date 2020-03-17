@@ -89,49 +89,46 @@ public class Login_System {
 				
 				User_Data user = new User_Data(username, password, role);
 				Test match = new Test();
+				
+				boolean found = false;
+				
+				
+				for (int i = 0; i < match.list.size(); i++) {
 
-				System.out.println("Username: " + user.name);
-				System.out.println("Password: " + user.password);
-				System.out.println("UserRole: " + user.userRole);
-				
-				
-//				for (int i = 0; i < match.list.size(); i++) {
-//					System.out.println("List_Username: " + match.list.get(i).name);
-//					System.out.println("List_Password: " + match.list.get(i).password);
-//					System.out.println("List_Password: " + match.list.get(i).userRole);
-//					if ((match.list.get(i).name == user.name) && (match.list.get(i).password == user.password)) {
-//						txt_Password.setText(null);
-//					  	txt_Username.setText(null);
-//					} else {
-//						JOptionPane.showMessageDialog(null,  "Invalid Login Details", "Login Error", JOptionPane.ERROR_MESSAGE);
-//					}
-//				}
-				
-				if (match.list.contains(user)) {
-					txt_Password.setText(null);
-					txt_Username.setText(null);
+					if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password))) {
+						System.out.println("Made it!");
+						found = true;
+					}
 				}
 				
-				else {
-					JOptionPane.showMessageDialog(null,  "Invalid Login Details", "Login Error", JOptionPane.ERROR_MESSAGE);
+				if (!found) {
+					JOptionPane.showMessageDialog(null, "Invalid Login Details","Login Error",JOptionPane.ERROR_MESSAGE);
 				}
+					
 				
+
 //				for (int i = 0; i < match.list.size(); i++) {
-//					System.out.println("List_Username: " + match.list.get(i).name);
-//					System.out.println("List_Password: " + match.list.get(i).password);
-//					System.out.println("List_Password: " + match.list.get(i).userRole);
-//					if (match.list.get(i).name == user.name) {
-//						System.out.println("Here");
-//						if (match.list.get(i).password == user.password) {
-//							txt_Password.setText(null);
-//							txt_Username.setText(null);
+//					while (!found) {
+//						if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password))) {
+//							System.out.println("Made it!");
+//							// Instantiate Management System
+//							
+//							found = true;
+//							  	
+//						} else {
+//							JOptionPane.showMessageDialog(null, "Invalid Login Details","Login Error",JOptionPane.ERROR_MESSAGE);
+//							found = true;
 //						}
-//					} else {
-//						JOptionPane.showMessageDialog(null,  "Invalid Login Details", "Login Error", JOptionPane.ERROR_MESSAGE);
+//						
 //					}
+//				
 //				}
 				
-
+//				for (int i = 0; i < match.list.size(); i++) {
+//					if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password))) {
+//						System.out.println("Made it!");
+//					}
+//				}
 			}
 		});
 		
