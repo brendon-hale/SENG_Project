@@ -92,7 +92,6 @@ public class Login_System {
 				
 				boolean found = false;
 				
-				
 				for (int i = 0; i < match.list.size(); i++) {
 
 					if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password))) {
@@ -105,30 +104,6 @@ public class Login_System {
 					JOptionPane.showMessageDialog(null, "Invalid Login Details","Login Error",JOptionPane.ERROR_MESSAGE);
 				}
 					
-				
-
-//				for (int i = 0; i < match.list.size(); i++) {
-//					while (!found) {
-//						if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password))) {
-//							System.out.println("Made it!");
-//							// Instantiate Management System
-//							
-//							found = true;
-//							  	
-//						} else {
-//							JOptionPane.showMessageDialog(null, "Invalid Login Details","Login Error",JOptionPane.ERROR_MESSAGE);
-//							found = true;
-//						}
-//						
-//					}
-//				
-//				}
-				
-//				for (int i = 0; i < match.list.size(); i++) {
-//					if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password))) {
-//						System.out.println("Made it!");
-//					}
-//				}
 			}
 		});
 		
