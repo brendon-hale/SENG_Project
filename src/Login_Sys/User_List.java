@@ -24,7 +24,7 @@ class User_Data {
 	}
 }
 
-public class Test {
+public class User_List {
 	
 	User_Data obj1 = new User_Data("Brendon Hale", "Derp", "Doctor");
 	User_Data obj2 = new User_Data("Scuba Steve", "1234", "Patient");

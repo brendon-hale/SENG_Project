@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import Mgmt_Sys.Main_Window;
+import Mgmt_Sys.User;
+
 import javax.swing.JPasswordField;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -62,11 +66,11 @@ public class Login_System {
 		frame.getContentPane().add(lbl_LoginSystem);
 		
 		JLabel lbl_Username = new JLabel("Username");
-		lbl_Username.setBounds(113, 113, 59, 14);
+		lbl_Username.setBounds(113, 113, 72, 14);
 		frame.getContentPane().add(lbl_Username);
 		
 		JLabel lbl_Password = new JLabel("Password");
-		lbl_Password.setBounds(113, 203, 46, 14);
+		lbl_Password.setBounds(113, 203, 72, 14);
 		frame.getContentPane().add(lbl_Password);
 		
 		JComboBox comboBox = new JComboBox();
@@ -88,14 +92,19 @@ public class Login_System {
 				String role = comboBox.getSelectedItem().toString();
 				
 				User_Data user = new User_Data(username, password, role);
-				Test match = new Test();
+				User_List match = new User_List();
 				
 				boolean found = false;
 				
 				for (int i = 0; i < match.list.size(); i++) {
 
-					if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password))) {
-						System.out.println("Made it!");
+					if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password)) && (match.list.get(i).userRole.contentEquals(user.userRole))) {
+						frame.dispose();
+						
+						User us = new User(user.name, user.userRole);
+						
+						Main_Window mainSys = new Main_Window(us);
+						mainSys.setVisible(true);
 						found = true;
 					}
 				}
