@@ -6,6 +6,10 @@ public class Admin extends User {
 		super(user);
 	}
 	
+	public void hi() {
+		System.out.println("hi");
+	}
+	
 	// To Implement
 	
 	// public void addDoctor()

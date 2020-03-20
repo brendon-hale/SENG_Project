@@ -11,7 +11,6 @@ import Mgmt_Sys.Admin;
 import Mgmt_Sys.Admin_Window;
 import Mgmt_Sys.Doctor;
 import Mgmt_Sys.Doctor_Window;
-import Mgmt_Sys.Main_Window;
 import Mgmt_Sys.Nurse;
 import Mgmt_Sys.Nurse_Window;
 import Mgmt_Sys.Patient;
@@ -127,6 +126,8 @@ public class Login_System {
 							
 							Doctor_Window doctorSys = new Doctor_Window((Doctor) us);
 							doctorSys.setVisible(true);
+							
+//							us.hi();
 						}
 						
 						if (user.userRole == "Nurse") {
