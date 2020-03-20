@@ -132,7 +132,7 @@ public class Login_System {
 						
 						if (user.getRole() == Constants.nurse) {
 							
-							us = new Doctor(user.getName(), user.getRole(), Constants.nurse);
+							us = new Nurse(user.getName(), user.getRole(), Constants.nurse);
 							
 							Nurse_Window nurseSys = new Nurse_Window((Nurse) us);
 							nurseSys.setVisible(true);
@@ -140,7 +140,7 @@ public class Login_System {
 						
 						if (user.getRole() == Constants.patient) {
 							
-							us = new Doctor(user.getName(), user.getRole(), Constants.patient);
+							us = new Patient(user.getName(), user.getRole(), Constants.patient);
 							
 							Patient_Window patientSys = new Patient_Window((Patient) us);
 							patientSys.setVisible(true);
