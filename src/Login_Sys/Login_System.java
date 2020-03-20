@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import Mgmt_Sys.Admin;
 import Mgmt_Sys.Admin_Window;
+import Mgmt_Sys.Constants;
 import Mgmt_Sys.Doctor;
 import Mgmt_Sys.Doctor_Window;
 import Mgmt_Sys.Nurse;
@@ -25,6 +26,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
@@ -81,7 +84,7 @@ public class Login_System {
 		frame.getContentPane().add(lbl_Password);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Patient", "Nurse", "Doctor", "Administrator"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {Constants.patient, Constants.nurse, Constants.doctor, Constants.admin}));
 		comboBox.setBounds(457, 109, 89, 22);
 		frame.getContentPane().add(comboBox);
 		
@@ -98,55 +101,53 @@ public class Login_System {
 				String password = txt_Password.getText();
 				String role = comboBox.getSelectedItem().toString();
 				
-				User_Data user = new User_Data(username, password, role);
-				User_List match = new User_List();
+				User user = new User(username, password, role);
+				
+				Test_Provider provider = new Test_Provider();
+				ArrayList<User> match = provider.getUserData();
 				
 				boolean found = false;
-				
-				for (int i = 0; i < match.list.size(); i++) {
 
-					if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password)) && (match.list.get(i).userRole.contentEquals(user.userRole))) {
+				User us = null;
+					
+				for (int i = 0; i < match.size(); i++) {
+					if ((match.get(i).getName().equals(user.getName())) && (match.get(i).getPass().equals(user.getPass())) && (match.get(i).getRole().contentEquals(user.getRole()))) {
 						frame.dispose();
 						
-						
-						
-						User us = new User(user.name, user.userRole);
-						
-						if (user.userRole == "Administrator") {
+						if (user.getRole() == Constants.admin) {
 							
-							us = new Admin(us);
+							us = new Admin(user.getName(), user.getRole(), Constants.admin);
 							
 							Admin_Window adminSys = new Admin_Window((Admin) us);
 							adminSys.setVisible(true);
 						}
 						
-						if (user.userRole == "Doctor") {
+						if (user.getRole() == Constants.doctor) {
 							
-							us = new Doctor(us);
+							us = new Doctor(user.getName(), user.getRole(), Constants.doctor);
 							
 							Doctor_Window doctorSys = new Doctor_Window((Doctor) us);
 							doctorSys.setVisible(true);
-							
-//							us.hi();
 						}
 						
-						if (user.userRole == "Nurse") {
+						if (user.getRole() == Constants.nurse) {
 							
-							us = new Nurse(us);
+							us = new Doctor(user.getName(), user.getRole(), Constants.nurse);
 							
 							Nurse_Window nurseSys = new Nurse_Window((Nurse) us);
 							nurseSys.setVisible(true);
 						}
 						
-						if (user.userRole == "Patient") {
+						if (user.getRole() == Constants.patient) {
 							
-							us = new Patient(us);
+							us = new Doctor(user.getName(), user.getRole(), Constants.patient);
 							
 							Patient_Window patientSys = new Patient_Window((Patient) us);
 							patientSys.setVisible(true);
 						}
 
-						found = true;
+						if (user != null)
+							found = true;
 					}
 				}
 				

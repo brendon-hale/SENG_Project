@@ -1,13 +1,9 @@
 package Mgmt_Sys;
 
 public class Admin extends User {
-	
-	public Admin (User user) {
-		super(user);
-	}
-	
-	public void hi() {
-		System.out.println("hi");
+
+	public Admin(String name, String password, String role) {
+		super(name, password, role);
 	}
 	
 	// To Implement
