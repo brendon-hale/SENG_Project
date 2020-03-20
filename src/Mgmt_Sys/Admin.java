@@ -1,6 +1,10 @@
 package Mgmt_Sys;
 
-public class Admin {
+public class Admin extends User {
+	
+	public Admin (User user) {
+		super(user);
+	}
 	
 	// To Implement
 	

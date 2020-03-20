@@ -10,6 +10,11 @@ public class User {
 		this.role = role;
 	}
 	
+	public User (User user) {
+		
+	}
+	
+	
 	public String getName() {
 		return this.name;
 	}

@@ -2,27 +2,27 @@ package Mgmt_Sys;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import java.awt.Font;
 
-public class Main_Window extends JFrame {
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class Doctor_Window extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Create the frame.
 	 */
-	public Main_Window(User user) {
+	public Doctor_Window(Doctor user) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 779, 456);
+		setBounds(100, 100, 859, 463);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		JLabel lbl_Header = new JLabel("Hospital Management System");
 		lbl_Header.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -33,4 +33,5 @@ public class Main_Window extends JFrame {
 		lbl_UserRole.setBounds(567, 19, 186, 24);
 		contentPane.add(lbl_UserRole);
 	}
+
 }

@@ -7,7 +7,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Mgmt_Sys.Admin;
+import Mgmt_Sys.Admin_Window;
+import Mgmt_Sys.Doctor;
+import Mgmt_Sys.Doctor_Window;
 import Mgmt_Sys.Main_Window;
+import Mgmt_Sys.Nurse;
+import Mgmt_Sys.Nurse_Window;
+import Mgmt_Sys.Patient;
+import Mgmt_Sys.Patient_Window;
 import Mgmt_Sys.User;
 
 import javax.swing.JPasswordField;
@@ -74,7 +82,7 @@ public class Login_System {
 		frame.getContentPane().add(lbl_Password);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Patient", "Nurse", "Doctor"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Patient", "Nurse", "Doctor", "Administrator"}));
 		comboBox.setBounds(457, 109, 89, 22);
 		frame.getContentPane().add(comboBox);
 		
@@ -101,10 +109,42 @@ public class Login_System {
 					if ((match.list.get(i).name.equals(user.name)) && (match.list.get(i).password.equals(user.password)) && (match.list.get(i).userRole.contentEquals(user.userRole))) {
 						frame.dispose();
 						
+						
+						
 						User us = new User(user.name, user.userRole);
 						
-						Main_Window mainSys = new Main_Window(us);
-						mainSys.setVisible(true);
+						if (user.userRole == "Administrator") {
+							
+							us = new Admin(us);
+							
+							Admin_Window adminSys = new Admin_Window((Admin) us);
+							adminSys.setVisible(true);
+						}
+						
+						if (user.userRole == "Doctor") {
+							
+							us = new Doctor(us);
+							
+							Doctor_Window doctorSys = new Doctor_Window((Doctor) us);
+							doctorSys.setVisible(true);
+						}
+						
+						if (user.userRole == "Nurse") {
+							
+							us = new Nurse(us);
+							
+							Nurse_Window nurseSys = new Nurse_Window((Nurse) us);
+							nurseSys.setVisible(true);
+						}
+						
+						if (user.userRole == "Patient") {
+							
+							us = new Patient(us);
+							
+							Patient_Window patientSys = new Patient_Window((Patient) us);
+							patientSys.setVisible(true);
+						}
+
 						found = true;
 					}
 				}
