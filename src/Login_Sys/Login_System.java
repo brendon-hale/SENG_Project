@@ -46,7 +46,7 @@ public class Login_System {
 			public void run() {
 				try {
 					Login_System window = new Login_System();
-					window.frame.setVisible(true);
+					window.getFrame().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -66,36 +66,38 @@ public class Login_System {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 675, 421);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		getFrame().setBounds(100, 100, 675, 421);
+		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrame().getContentPane().setLayout(null);
 		
 		JLabel lbl_LoginSystem = new JLabel("Login System");
 		lbl_LoginSystem.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lbl_LoginSystem.setBounds(267, 11, 118, 28);
-		frame.getContentPane().add(lbl_LoginSystem);
+		getFrame().getContentPane().add(lbl_LoginSystem);
 		
 		JLabel lbl_Username = new JLabel("Username");
 		lbl_Username.setBounds(113, 113, 72, 14);
-		frame.getContentPane().add(lbl_Username);
+		getFrame().getContentPane().add(lbl_Username);
 		
 		JLabel lbl_Password = new JLabel("Password");
 		lbl_Password.setBounds(113, 203, 72, 14);
-		frame.getContentPane().add(lbl_Password);
+		getFrame().getContentPane().add(lbl_Password);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {Constants.patient, Constants.nurse, Constants.doctor, Constants.admin}));
 		comboBox.setBounds(457, 109, 89, 22);
-		frame.getContentPane().add(comboBox);
+		getFrame().getContentPane().add(comboBox);
 		
 		txt_Username = new JTextField();
 		txt_Username.setBounds(241, 110, 180, 20);
-		frame.getContentPane().add(txt_Username);
+		getFrame().getContentPane().add(txt_Username);
 		txt_Username.setColumns(10);
 		
 		JButton btn_Login = new JButton("Login");
 		btn_Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				// Should make this a function
 				
 				String username = txt_Username.getText();
 				String password = txt_Password.getText();
@@ -112,7 +114,7 @@ public class Login_System {
 					
 				for (int i = 0; i < match.size(); i++) {
 					if ((match.get(i).getName().equals(user.getName())) && (match.get(i).getPass().equals(user.getPass())) && (match.get(i).getRole().contentEquals(user.getRole()))) {
-						frame.dispose();
+						getFrame().dispose();
 						
 						if (user.getRole() == Constants.admin) {
 							
@@ -159,7 +161,7 @@ public class Login_System {
 		});
 		
 		btn_Login.setBounds(113, 327, 89, 23);
-		frame.getContentPane().add(btn_Login);
+		getFrame().getContentPane().add(btn_Login);
 		
 		txt_Password = new JPasswordField();
 		txt_Password.addKeyListener(new KeyAdapter() {
@@ -171,7 +173,7 @@ public class Login_System {
 			}
 		});
 		txt_Password.setBounds(241, 200, 180, 20);
-		frame.getContentPane().add(txt_Password);
+		getFrame().getContentPane().add(txt_Password);
 		
 		JButton btn_Reset = new JButton("Reset");
 		btn_Reset.addActionListener(new ActionListener() {
@@ -181,7 +183,7 @@ public class Login_System {
 			}
 		});
 		btn_Reset.setBounds(285, 327, 89, 23);
-		frame.getContentPane().add(btn_Reset);
+		getFrame().getContentPane().add(btn_Reset);
 		
 		JButton btn_Exit = new JButton("Exit");
 		btn_Exit.addActionListener(new ActionListener() {
@@ -195,15 +197,19 @@ public class Login_System {
 			}
 		});
 		btn_Exit.setBounds(457, 327, 89, 23);
-		frame.getContentPane().add(btn_Exit);
+		getFrame().getContentPane().add(btn_Exit);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(113, 314, 433, 2);
-		frame.getContentPane().add(separator);
+		getFrame().getContentPane().add(separator);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(113, 50, 433, 2);
-		frame.getContentPane().add(separator_1);
+		getFrame().getContentPane().add(separator_1);
 		
+	}
+
+	public JFrame getFrame() {
+		return frame;
 	}
 }
