@@ -1,15 +1,47 @@
 package Mgmt_Sys;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import Login_Sys.Test_Provider;
+
 public class Admin extends User {
 
 	public Admin(String name, String password, String role) {
 		super(name, password, role);
 	}
-	
-	// To Implement
-	
-	// public void addDoctor()
-	// public void addNurse()
-	// public void addPatient()
 
+	public void addUser() {
+		JTextField enterName = new JTextField();
+		JTextField enterPass = new JTextField();
+		
+		JComboBox userRole = new JComboBox();
+		userRole.setModel(new DefaultComboBoxModel(new String[] {Constants.patient, Constants.nurse, Constants.doctor, Constants.admin}));
+		
+		Object[] fields = {
+				"Enter Username:", enterName,
+				"Enter Password:", enterPass,
+				"Select Role:", userRole
+		};
+		
+		int option = JOptionPane.showConfirmDialog(null, fields, "Adding New User", JOptionPane.OK_CANCEL_OPTION);
+		
+		if (option == JOptionPane.OK_OPTION) {
+			String name = enterName.getText();
+			String password = enterPass.getText();
+			String role = userRole.getSelectedItem().toString();
+			
+			Test_Provider provider = new Test_Provider();
+			ArrayList<User> addList = provider.getUserData();
+			
+			User newUser = new User(name, password, role);
+			
+			addList.add(newUser);
+		}
+	}
 }

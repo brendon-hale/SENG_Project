@@ -56,5 +56,14 @@ public class Admin_Window extends JFrame {
 		lbl_Access.setBounds(293, 44, 188, 14);
 		contentPane.add(lbl_Access);
 		
+		JButton btn_AddUser = new JButton("Add User");
+		btn_AddUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				user.addUser();
+			}
+		});
+		btn_AddUser.setBounds(649, 40, 89, 23);
+		contentPane.add(btn_AddUser);
+		
 	}
 }
