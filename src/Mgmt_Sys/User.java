@@ -7,7 +7,7 @@ public class User {
 	private String name;
 	private String role;
 	private String password;
-	public Data_Model dataModel;
+//	public Data_Model dataModel;
 
 
 	
