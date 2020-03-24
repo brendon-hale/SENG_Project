@@ -8,10 +8,13 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Login_Sys.Data_Model;
 import Login_Sys.Test_Provider;
 
 public class Admin extends User {
 
+	public Data_Model dataModel;
+	
 	public Admin(String name, String password, String role) {
 		super(name, password, role);
 	}
@@ -36,12 +39,16 @@ public class Admin extends User {
 			String password = enterPass.getText();
 			String role = userRole.getSelectedItem().toString();
 			
-			Test_Provider provider = new Test_Provider();
-			ArrayList<User> addList = provider.getUserData();
-			
 			User newUser = new User(name, password, role);
 			
-			addList.add(newUser);
+//			Test_Provider provider = new Test_Provider();
+//			ArrayList<User> addList = provider.getUserData();
+			
+//			addList.add(newUser);
+			
+//			Data_Model.UserData.add(newUser);
+			
+			dataModel.UserData.add(newUser);
 		}
 	}
 }

@@ -37,6 +37,8 @@ public class Login_System {
 	private JTextField txt_Username;
 	private JPasswordField txt_Password;
 	protected JFrame frmLoginSystem;
+	
+	private Data_Model dataModel = new Data_Model();
 
 	/**
 	 * Launch the application.
@@ -65,6 +67,10 @@ public class Login_System {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		Test_Provider provider = new Test_Provider();
+		dataModel.UserData = provider.getUserData();
+		
 		frame = new JFrame();
 		getFrame().setBounds(100, 100, 675, 421);
 		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -105,20 +111,21 @@ public class Login_System {
 				
 				User user = new User(username, password, role);
 				
-				Test_Provider provider = new Test_Provider();
-				ArrayList<User> match = provider.getUserData();
+//				Test_Provider provider = new Test_Provider();
+//				ArrayList<User> match = provider.getUserData();
 				
 				boolean found = false;
 
 				User us = null;
 					
-				for (int i = 0; i < match.size(); i++) {
-					if ((match.get(i).getName().equals(user.getName())) && (match.get(i).getPass().equals(user.getPass())) && (match.get(i).getRole().contentEquals(user.getRole()))) {
+				for (int i = 0; i < dataModel.UserData.size(); i++) {
+					if ((dataModel.UserData.get(i).getName().equals(user.getName())) && (dataModel.UserData.get(i).getPass().equals(user.getPass())) && (dataModel.UserData.get(i).getRole().contentEquals(user.getRole()))) {
 						getFrame().dispose();
 						
 						if (user.getRole() == Constants.admin) {
 							
 							us = new Admin(user.getName(), user.getRole(), Constants.admin);
+							us.dataModel = dataModel;
 							
 							Admin_Window adminSys = new Admin_Window((Admin) us);
 							adminSys.setVisible(true);
