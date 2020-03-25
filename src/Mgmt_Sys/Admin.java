@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Login_Sys.Data_Model;
+import Login_Sys.Login_System;
 import Login_Sys.Test_Provider;
 
 public class Admin extends User {
@@ -41,14 +42,11 @@ public class Admin extends User {
 			
 			User newUser = new User(name, password, role);
 			
-//			Test_Provider provider = new Test_Provider();
-//			ArrayList<User> addList = provider.getUserData();
-			
-//			addList.add(newUser);
-			
-//			Data_Model.UserData.add(newUser);
-			
 			dataModel.UserData.add(newUser);
+			Login_System.dataModel = this.dataModel;
+			
+//			System.out.println(Arrays.deepToString(dataModel.UserData.toArray()));
+//			System.out.println(Arrays.deepToString(Login_System.dataModel.UserData.toArray()));
 		}
 	}
 }

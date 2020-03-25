@@ -38,7 +38,8 @@ public class Login_System {
 	private JPasswordField txt_Password;
 	protected JFrame frmLoginSystem;
 	
-	private Data_Model dataModel = new Data_Model();
+//	public static Data_Model dataModel = new Data_Model();
+	public static Data_Model dataModel;
 
 	/**
 	 * Launch the application.
@@ -68,8 +69,11 @@ public class Login_System {
 	 */
 	private void initialize() {
 		
-		Test_Provider provider = new Test_Provider();
-		dataModel.UserData = provider.getUserData();
+		if (dataModel == null) {
+			dataModel = new Data_Model();
+			Test_Provider provider = new Test_Provider();
+			dataModel.UserData = provider.getUserData();
+		}
 		
 		frame = new JFrame();
 		getFrame().setBounds(100, 100, 675, 421);
@@ -111,12 +115,9 @@ public class Login_System {
 				
 				User user = new User(username, password, role);
 				
-//				Test_Provider provider = new Test_Provider();
-//				ArrayList<User> match = provider.getUserData();
-				
 				boolean found = false;
 
-				User us = null;
+//				User us = null;
 					
 				for (int i = 0; i < dataModel.UserData.size(); i++) {
 					if ((dataModel.UserData.get(i).getName().equals(user.getName())) && (dataModel.UserData.get(i).getPass().equals(user.getPass())) && (dataModel.UserData.get(i).getRole().contentEquals(user.getRole()))) {
@@ -124,8 +125,12 @@ public class Login_System {
 						
 						if (user.getRole() == Constants.admin) {
 							
-							us = new Admin(user.getName(), user.getRole(), Constants.admin);
+							Admin us = new Admin(user.getName(), user.getRole(), Constants.admin);
 							us.dataModel = dataModel;
+							
+							System.out.println("Login_System dataModel: " + dataModel);
+							System.out.println("us dataModel: " + us.dataModel);
+							
 							
 							Admin_Window adminSys = new Admin_Window((Admin) us);
 							adminSys.setVisible(true);
@@ -133,7 +138,8 @@ public class Login_System {
 						
 						if (user.getRole() == Constants.doctor) {
 							
-							us = new Doctor(user.getName(), user.getRole(), Constants.doctor);
+//							us = new Doctor(user.getName(), user.getRole(), Constants.doctor);
+							Doctor us = new Doctor(user.getName(), user.getRole(), Constants.doctor);
 							
 							Doctor_Window doctorSys = new Doctor_Window((Doctor) us);
 							doctorSys.setVisible(true);
@@ -141,7 +147,8 @@ public class Login_System {
 						
 						if (user.getRole() == Constants.nurse) {
 							
-							us = new Nurse(user.getName(), user.getRole(), Constants.nurse);
+//							us = new Nurse(user.getName(), user.getRole(), Constants.nurse);
+							Nurse us = new Nurse(user.getName(), user.getRole(), Constants.nurse);
 							
 							Nurse_Window nurseSys = new Nurse_Window((Nurse) us);
 							nurseSys.setVisible(true);
@@ -149,7 +156,8 @@ public class Login_System {
 						
 						if (user.getRole() == Constants.patient) {
 							
-							us = new Patient(user.getName(), user.getRole(), Constants.patient);
+//							us = new Patient(user.getName(), user.getRole(), Constants.patient);
+							Patient us = new Patient(user.getName(), user.getRole(), Constants.patient);
 							
 							Patient_Window patientSys = new Patient_Window((Patient) us);
 							patientSys.setVisible(true);

@@ -7,7 +7,6 @@ public class User {
 	private String name;
 	private String role;
 	private String password;
-//	public Data_Model dataModel;
 
 
 	
@@ -27,6 +26,10 @@ public class User {
 
 	public String getPass() {
 		return this.password;
+	}
+	
+	public String toString() {
+		return name + " " + role + " " + password;
 	}
 
 }
