@@ -37,7 +37,7 @@ public class Nurse_Window extends JFrame {
 		contentPane.add(label);
 		
 		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole());
-		lbl_Access.setBounds(316, 44, 188, 14);
+		lbl_Access.setBounds(281, 71, 188, 14);
 		contentPane.add(lbl_Access);
 		
 		JButton btn_Logout = new JButton("Logout");
@@ -54,6 +54,10 @@ public class Nurse_Window extends JFrame {
 		});
 		btn_Logout.setBounds(727, 351, 89, 23);
 		contentPane.add(btn_Logout);
+		
+		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName());
+		lbl_Welcome.setBounds(281, 46, 242, 14);
+		contentPane.add(lbl_Welcome);
 	}
 
 }

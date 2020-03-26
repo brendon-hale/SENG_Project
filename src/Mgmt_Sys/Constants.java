@@ -7,4 +7,7 @@ public class Constants {
 	public static String nurse = "Nurse";
 	public static String patient = "Patient";
 	
+	public static String bp = "Blood Pressure";
+	public static String cancer = "Cancer";
+	
 }

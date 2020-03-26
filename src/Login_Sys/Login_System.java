@@ -38,7 +38,6 @@ public class Login_System {
 	private JPasswordField txt_Password;
 	protected JFrame frmLoginSystem;
 	
-//	public static Data_Model dataModel = new Data_Model();
 	public static Data_Model dataModel;
 
 	/**

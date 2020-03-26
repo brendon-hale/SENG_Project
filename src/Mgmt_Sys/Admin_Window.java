@@ -53,7 +53,7 @@ public class Admin_Window extends JFrame {
 		contentPane.add(btn_Logout);
 		
 		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole());
-		lbl_Access.setBounds(293, 44, 188, 14);
+		lbl_Access.setBounds(254, 72, 242, 14);
 		contentPane.add(lbl_Access);
 		
 		JButton btn_AddUser = new JButton("Add User");
@@ -64,6 +64,10 @@ public class Admin_Window extends JFrame {
 		});
 		btn_AddUser.setBounds(649, 40, 89, 23);
 		contentPane.add(btn_AddUser);
+		
+		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName());
+		lbl_Welcome.setBounds(254, 47, 242, 14);
+		contentPane.add(lbl_Welcome);
 		
 	}
 }
