@@ -15,6 +15,7 @@ import Mgmt_Sys.Doctor_Window;
 import Mgmt_Sys.Nurse;
 import Mgmt_Sys.Nurse_Window;
 import Mgmt_Sys.Patient;
+import Mgmt_Sys.Patient_List;
 import Mgmt_Sys.Patient_Window;
 import Mgmt_Sys.User;
 
@@ -157,6 +158,8 @@ public class Login_System {
 							
 //							us = new Patient(user.getName(), user.getRole(), Constants.patient);
 							Patient us = new Patient(user.getName(), user.getRole(), Constants.patient);
+							
+//							Patient_List.patientList.add(us);
 							
 							Patient_Window patientSys = new Patient_Window((Patient) us);
 							patientSys.setVisible(true);

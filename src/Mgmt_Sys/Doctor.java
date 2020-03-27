@@ -47,15 +47,15 @@ public class Doctor extends User {
 			
 			Tests tests = new Tests(patientName, testSelected, results);
 			
-			Test_Results.testResults.add(tests);
+			Test_Results.testResults.add(tests);		
 			
-			for (int i = 0; i < dataModel.UserData.size(); i++) {
-				if (dataModel.UserData.get(i).getName() == patientName) {
-					patient = dataModel.UserData.get(i);
-//					patient.addTestResults(tests);
+			for (int i = 0; i < Data_Model.UserData.size(); i++) {
+				if(Data_Model.UserData.get(i) instanceof Patient) {
+					((Patient) Data_Model.UserData.get(i)).addTestResults(tests);
 				}
 			}
 			
+			// Temporary print out of ArrayList of testResults
 			System.out.println(Arrays.deepToString(Test_Results.testResults.toArray()));
 		
 		}

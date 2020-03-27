@@ -26,6 +26,8 @@ public class Patient extends User {
 	public String toString() {
 		return getName();
 	}
+	
+	
 
 	
 

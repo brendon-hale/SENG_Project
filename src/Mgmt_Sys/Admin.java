@@ -42,6 +42,11 @@ public class Admin extends User {
 			
 			User newUser = new User(name, password, role);
 			
+//			if (role == Constants.patient) {
+//				Patient patient = new Patient(name, password, role);
+//				Patient_List.patientList.add(patient);
+//			}
+			
 			dataModel.UserData.add(newUser);
 			Login_System.dataModel = this.dataModel;
 			

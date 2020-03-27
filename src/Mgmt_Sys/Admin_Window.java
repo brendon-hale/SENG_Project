@@ -62,7 +62,7 @@ public class Admin_Window extends JFrame {
 				user.addUser();
 			}
 		});
-		btn_AddUser.setBounds(649, 40, 89, 23);
+		btn_AddUser.setBounds(56, 317, 118, 49);
 		contentPane.add(btn_AddUser);
 		
 		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName());
