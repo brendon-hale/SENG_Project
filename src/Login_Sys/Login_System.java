@@ -71,7 +71,7 @@ public class Login_System {
 		
 		if (dataModel == null) {
 			dataModel = new Data_Model();
-			Test_Provider provider = new Test_Provider();
+			User_Provider provider = new User_Provider();
 			dataModel.UserData = provider.getUserData();
 		}
 		
@@ -116,8 +116,6 @@ public class Login_System {
 				User user = new User(username, password, role);
 				
 				boolean found = false;
-
-//				User us = null;
 					
 				for (int i = 0; i < dataModel.UserData.size(); i++) {
 					if ((dataModel.UserData.get(i).getName().equals(user.getName())) && (dataModel.UserData.get(i).getPass().equals(user.getPass())) && (dataModel.UserData.get(i).getRole().contentEquals(user.getRole()))) {
@@ -138,7 +136,6 @@ public class Login_System {
 						
 						if (user.getRole() == Constants.doctor) {
 							
-//							us = new Doctor(user.getName(), user.getRole(), Constants.doctor);
 							Doctor us = new Doctor(user.getName(), user.getRole(), Constants.doctor);
 							
 							Doctor_Window doctorSys = new Doctor_Window((Doctor) us);
@@ -146,8 +143,7 @@ public class Login_System {
 						}
 						
 						if (user.getRole() == Constants.nurse) {
-							
-//							us = new Nurse(user.getName(), user.getRole(), Constants.nurse);
+
 							Nurse us = new Nurse(user.getName(), user.getRole(), Constants.nurse);
 							
 							Nurse_Window nurseSys = new Nurse_Window((Nurse) us);
@@ -156,9 +152,7 @@ public class Login_System {
 						
 						if (user.getRole() == Constants.patient) {
 							
-//							us = new Patient(user.getName(), user.getRole(), Constants.patient);
 							Patient us = new Patient(user.getName(), user.getRole(), Constants.patient);
-							
 //							Patient_List.patientList.add(us);
 							
 							Patient_Window patientSys = new Patient_Window((Patient) us);

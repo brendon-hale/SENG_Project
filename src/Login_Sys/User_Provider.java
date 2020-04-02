@@ -2,9 +2,12 @@ package Login_Sys;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import Mgmt_Sys.Constants;
+import Mgmt_Sys.Patient;
 import Mgmt_Sys.User;
 
-public class Test_Provider {
+public class User_Provider {
 
 	public ArrayList<User> getUserData(){
 		
@@ -20,4 +23,13 @@ public class Test_Provider {
 		return list;
 	}
 	
+	public ArrayList<Patient> getPatientData(){
+		ArrayList<Patient> list = new ArrayList<Patient>();
+		for(int i = 0; i < getUserData().size(); i++) {
+			if(getUserData().get(i).getRole() == Constants.patient) {
+				list.add((Patient) getUserData().get(i));
+			}
+		}
+		return list;
+	}
 }

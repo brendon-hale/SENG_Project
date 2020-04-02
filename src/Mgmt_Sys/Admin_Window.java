@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import Login_Sys.Login_System;
@@ -52,7 +53,7 @@ public class Admin_Window extends JFrame {
 		btn_Logout.setBounds(649, 343, 89, 23);
 		contentPane.add(btn_Logout);
 		
-		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole());
+		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole(), SwingConstants.CENTER);
 		lbl_Access.setBounds(254, 72, 242, 14);
 		contentPane.add(lbl_Access);
 		
@@ -65,7 +66,7 @@ public class Admin_Window extends JFrame {
 		btn_AddUser.setBounds(56, 317, 118, 49);
 		contentPane.add(btn_AddUser);
 		
-		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName());
+		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName(), SwingConstants.CENTER);
 		lbl_Welcome.setBounds(254, 47, 242, 14);
 		contentPane.add(lbl_Welcome);
 		

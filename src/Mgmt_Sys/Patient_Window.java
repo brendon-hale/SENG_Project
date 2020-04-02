@@ -15,6 +15,9 @@ import javax.swing.border.EmptyBorder;
 import Login_Sys.Login_System;
 
 import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
 
 public class Patient_Window extends JFrame {
 
@@ -36,8 +39,8 @@ public class Patient_Window extends JFrame {
 		label.setBounds(287, 0, 242, 37);
 		contentPane.add(label);
 		
-		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole());
-		lbl_Access.setBounds(287, 58, 188, 14);
+		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole(), SwingConstants.CENTER);
+		lbl_Access.setBounds(287, 58, 242, 14);
 		contentPane.add(lbl_Access);
 		
 		JButton btn_Logout = new JButton("Logout");
@@ -55,9 +58,20 @@ public class Patient_Window extends JFrame {
 		btn_Logout.setBounds(714, 353, 89, 23);
 		contentPane.add(btn_Logout);
 		
-		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName());
+		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName(), SwingConstants.CENTER);
 		lbl_Welcome.setBounds(287, 33, 242, 14);
 		contentPane.add(lbl_Welcome);
+		
+		JLabel lbl_TestResults = new JLabel("Test Results");
+		lbl_TestResults.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lbl_TestResults.setBounds(25, 84, 97, 23);
+		contentPane.add(lbl_TestResults);
+		
+		JLabel lbl_TestResultField = new JLabel();
+		lbl_TestResultField.setVerticalAlignment(JLabel.TOP);
+		lbl_TestResultField.setHorizontalAlignment(JLabel.LEFT);
+		lbl_TestResultField.setBounds(25, 118, 205, 258);
+		contentPane.add(lbl_TestResultField);
+		lbl_TestResultField.setText(user.printTestResults());
 	}
-
 }

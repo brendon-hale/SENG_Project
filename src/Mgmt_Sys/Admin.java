@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 import Login_Sys.Data_Model;
 import Login_Sys.Login_System;
-import Login_Sys.Test_Provider;
+import Login_Sys.User_Provider;
 
 public class Admin extends User {
 
@@ -42,16 +42,8 @@ public class Admin extends User {
 			
 			User newUser = new User(name, password, role);
 			
-//			if (role == Constants.patient) {
-//				Patient patient = new Patient(name, password, role);
-//				Patient_List.patientList.add(patient);
-//			}
-			
 			dataModel.UserData.add(newUser);
 			Login_System.dataModel = this.dataModel;
-			
-//			System.out.println(Arrays.deepToString(dataModel.UserData.toArray()));
-//			System.out.println(Arrays.deepToString(Login_System.dataModel.UserData.toArray()));
 		}
 	}
 }

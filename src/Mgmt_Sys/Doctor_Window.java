@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import Login_Sys.Login_System;
@@ -36,7 +37,7 @@ public class Doctor_Window extends JFrame {
 		lbl_Header.setBounds(254, 11, 242, 37);
 		contentPane.add(lbl_Header);
 		
-		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole());
+		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole(), SwingConstants.CENTER);
 		lbl_Access.setBounds(254, 71, 242, 14);
 		contentPane.add(lbl_Access);
 		
@@ -55,7 +56,7 @@ public class Doctor_Window extends JFrame {
 		btn_Logout.setBounds(744, 391, 89, 23);
 		contentPane.add(btn_Logout);
 		
-		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName());
+		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName(), SwingConstants.CENTER);
 		lbl_Welcome.setBounds(254, 46, 242, 14);
 		contentPane.add(lbl_Welcome);
 		

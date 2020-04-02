@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 import Login_Sys.Data_Model;
 import Login_Sys.Login_System;
-import Login_Sys.Test_Provider;
+import Login_Sys.User_Provider;
 
 public class Doctor extends User {
 
@@ -49,11 +49,11 @@ public class Doctor extends User {
 			
 			Test_Results.testResults.add(tests);		
 			
-			for (int i = 0; i < Data_Model.UserData.size(); i++) {
-				if(Data_Model.UserData.get(i) instanceof Patient) {
-					((Patient) Data_Model.UserData.get(i)).addTestResults(tests);
-				}
-			}
+//			for (int i = 0; i < Patient_List.patientList.size(); i++) {
+//				if(Patient_List.patientList.get(i).getName() == patientName) {
+//					Patient_List.patientList.get(i).getTestResults().add(tests);
+//				}
+//			}
 			
 			// Temporary print out of ArrayList of testResults
 			System.out.println(Arrays.deepToString(Test_Results.testResults.toArray()));

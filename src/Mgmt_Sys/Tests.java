@@ -16,6 +16,14 @@ public class Tests {
 		return patientName;
 	}
 	
+	public String getTest() {
+		return test;
+	}
+	
+	public String getResult() {
+		return result;
+	}
+	
 	public String toString() {
 		return patientName + "\t" + test + "\t" + result;
 	}
