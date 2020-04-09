@@ -40,7 +40,20 @@ public class Admin extends User {
 			String password = enterPass.getText();
 			String role = userRole.getSelectedItem().toString();
 			
-			User newUser = new User(name, password, role);
+			User newUser = null;
+			
+			// Should be made into a switch
+			if (role == Constants.admin)
+				newUser = new Admin(name, password, role);
+			
+			if (role == Constants.doctor)
+				newUser = new Doctor(name, password, role);
+			
+			if (role == Constants.nurse)
+				newUser = new Nurse(name, password, role);
+			
+			if (role == Constants.patient)
+				newUser = new Patient(name, password, role);
 			
 			dataModel.UserData.add(newUser);
 			Login_System.dataModel = this.dataModel;

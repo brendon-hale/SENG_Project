@@ -3,7 +3,10 @@ package Login_Sys;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import Mgmt_Sys.Admin;
 import Mgmt_Sys.Constants;
+import Mgmt_Sys.Doctor;
+import Mgmt_Sys.Nurse;
 import Mgmt_Sys.Patient;
 import Mgmt_Sys.User;
 
@@ -11,25 +14,15 @@ public class User_Provider {
 
 	public ArrayList<User> getUserData(){
 		
-		User obj1 = new User("Brendon Hale", "1234", "Administrator");
-		User obj2 = new User("Frank Guo", "1234", "Administrator");
-		User obj3 = new User("Minh Hang Chu", "1234", "Administrator");
-		User obj4 = new User("Max Powers", "guest", "Doctor");
-		User obj5 = new User("Scuba Steve", "guest", "Nurse");
-		User obj6 = new User("Bob", "guest", "Patient");
+		Admin obj1 = new Admin("Brendon Hale", "1234", "Administrator");
+		Admin obj2 = new Admin("Frank Guo", "1234", "Administrator");
+		Admin obj3 = new Admin("Minh Hang Chu", "1234", "Administrator");
+		Doctor obj4 = new Doctor("Max Powers", "guest", "Doctor");
+		Nurse obj5 = new Nurse("Scuba Steve", "guest", "Nurse");
+		Patient obj6 = new Patient("Bob", "guest", "Patient");
 		
 		ArrayList<User> list = new ArrayList<>(Arrays.asList(obj1, obj2, obj3, obj4, obj5, obj6));
 		
-		return list;
-	}
-	
-	public ArrayList<Patient> getPatientData(){
-		ArrayList<Patient> list = new ArrayList<Patient>();
-		for(int i = 0; i < getUserData().size(); i++) {
-			if(getUserData().get(i).getRole() == Constants.patient) {
-				list.add((Patient) getUserData().get(i));
-			}
-		}
 		return list;
 	}
 }

@@ -1,12 +1,9 @@
 package Mgmt_Sys;
 
-import java.awt.Container;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Patient extends User {
 	
-//	private ArrayList<Tests> testResults = new ArrayList<Tests>();
 	private ArrayList<Tests> testResults;
 	
 	public Patient(String name, String password, String role) {
@@ -38,16 +35,6 @@ public class Patient extends User {
 				test = testResults.get(i).getTest() + "\t" + testResults.get(i).getResult() + "\n";
 		return test;
 	}
-	
-
-
-//	public void printTestResults() {
-//		if (testResults == null)
-//			System.out.println("No Current Test Pending");
-//		else
-//			for (int i = 0; i < testResults.size(); i++)
-//				System.out.println(testResults.get(i).getTest() + "\t" + testResults.get(i).getResult() + "\n");
-//	}
 	
 
 	

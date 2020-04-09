@@ -126,10 +126,6 @@ public class Login_System {
 							Admin us = new Admin(user.getName(), user.getRole(), Constants.admin);
 							us.dataModel = dataModel;
 							
-							System.out.println("Login_System dataModel: " + dataModel);
-							System.out.println("us dataModel: " + us.dataModel);
-							
-							
 							Admin_Window adminSys = new Admin_Window((Admin) us);
 							adminSys.setVisible(true);
 						}
@@ -153,7 +149,6 @@ public class Login_System {
 						if (user.getRole() == Constants.patient) {
 							
 							Patient us = new Patient(user.getName(), user.getRole(), Constants.patient);
-//							Patient_List.patientList.add(us);
 							
 							Patient_Window patientSys = new Patient_Window((Patient) us);
 							patientSys.setVisible(true);

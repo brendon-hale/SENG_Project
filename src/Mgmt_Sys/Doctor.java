@@ -25,13 +25,15 @@ public class Doctor extends User {
 		
 		JComboBox patients = new JComboBox();
 		
+		// Create a list of patients
 		for (int i = 0; i < dataModel.UserData.size(); i++) {
 			if(dataModel.UserData.get(i).getRole() == Constants.patient)
 				patients.addItem(dataModel.UserData.get(i).getName());
 		}
 		
+		// Fill combobox w/ Test_Types
 		JComboBox testSelect = new JComboBox();
-		testSelect.setModel(new DefaultComboBoxModel(new String[] {Constants.bp, Constants.cancer}));
+		testSelect.setModel(new DefaultComboBoxModel(Test_Types.getTypes()));
 		
 		Object [] fields = {
 				"Select Patient:", patients,
@@ -47,13 +49,28 @@ public class Doctor extends User {
 			
 			Tests tests = new Tests(patientName, testSelected, results);
 			
-			Test_Results.testResults.add(tests);		
+			Test_Results.testResults.add(tests);				
 			
-//			for (int i = 0; i < Patient_List.patientList.size(); i++) {
-//				if(Patient_List.patientList.get(i).getName() == patientName) {
-//					Patient_List.patientList.get(i).getTestResults().add(tests);
-//				}
-//			}
+			// Temporary print out of ArrayList of Patients
+			System.out.println(Arrays.deepToString(Data_Model.getPatients().toArray()));
+			
+			for (int i = 0; i < Data_Model.getPatients().size(); i++) {
+				if (Data_Model.getPatients().get(i).getName() == patientName) {
+					try {
+						Patient patient1 = Data_Model.getPatients().get(i);
+						patient1.addTestResults(tests);
+						
+//						Data_Model.getPatients().get(i).addTestResults(tests);
+					}
+					catch(NullPointerException e) {
+						System.out.println("NullPointerException thrown!");
+					}
+				}
+			}
+			
+			
+			
+			
 			
 			// Temporary print out of ArrayList of testResults
 			System.out.println(Arrays.deepToString(Test_Results.testResults.toArray()));
