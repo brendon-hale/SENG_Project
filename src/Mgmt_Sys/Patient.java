@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Patient extends User {
 	
-	private ArrayList<Tests> testResults;
+	private ArrayList<Tests> testResults = new ArrayList<Tests>();
 	
 	public Patient(String name, String password, String role) {
 		super(name, password, role);
@@ -18,7 +18,7 @@ public class Patient extends User {
 		return testResults;
 	}
 	
-	public void	addTestResults(Tests test){
+	public void addTestResults(Tests test) {
 		testResults.add(test);
 	}
 	
@@ -27,20 +27,15 @@ public class Patient extends User {
 	}
 	
 	public String printTestResults() {
-		String test = null;
-		if (testResults == null)
-			test = "No Current Test Pending";
-		else
-			for (int i = 0; i < testResults.size(); i++)
-				test = testResults.get(i).getTest() + "\t" + testResults.get(i).getResult() + "\n";
+		String test = "No Test Results Pending";
+		
+		if (testResults != null) {
+			test = "";
+			for (int i = 0; i < testResults.size(); i++) {
+				test = test + testResults.get(i).toString() + "\n";
+			}
+		}
+		
 		return test;
 	}
-	
-
-	
-	
-	// To Implement
-	
-	// private Appointment appointment;
-	
 }

@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 public class Patient_Window extends JFrame {
 
@@ -67,11 +68,11 @@ public class Patient_Window extends JFrame {
 		lbl_TestResults.setBounds(25, 84, 97, 23);
 		contentPane.add(lbl_TestResults);
 		
-		JLabel lbl_TestResultField = new JLabel();
-		lbl_TestResultField.setVerticalAlignment(JLabel.TOP);
-		lbl_TestResultField.setHorizontalAlignment(JLabel.LEFT);
-		lbl_TestResultField.setBounds(25, 118, 205, 258);
-		contentPane.add(lbl_TestResultField);
-		lbl_TestResultField.setText(user.printTestResults());
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		textArea.setBounds(35, 117, 407, 128);
+		textArea.append(user.printTestResults());
+		contentPane.add(textArea);
+		
 	}
 }

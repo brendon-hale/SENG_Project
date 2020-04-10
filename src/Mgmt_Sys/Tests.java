@@ -25,7 +25,7 @@ public class Tests {
 	}
 	
 	public String toString() {
-		return patientName + ": " + test + " - " + result;
+		return patientName + ": " + test + "\t- " + result;
 	}
 
 }

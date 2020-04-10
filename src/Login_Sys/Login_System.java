@@ -7,15 +7,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Data_Sys.Constants;
+import Data_Sys.Patient_List;
 import Mgmt_Sys.Admin;
 import Mgmt_Sys.Admin_Window;
-import Mgmt_Sys.Constants;
 import Mgmt_Sys.Doctor;
 import Mgmt_Sys.Doctor_Window;
 import Mgmt_Sys.Nurse;
 import Mgmt_Sys.Nurse_Window;
 import Mgmt_Sys.Patient;
-import Mgmt_Sys.Patient_List;
 import Mgmt_Sys.Patient_Window;
 import Mgmt_Sys.User;
 
@@ -107,8 +107,6 @@ public class Login_System {
 		btn_Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				// Should make this a function
-				
 				String username = txt_Username.getText();
 				String password = txt_Password.getText();
 				String role = comboBox.getSelectedItem().toString();
@@ -121,38 +119,63 @@ public class Login_System {
 					if ((dataModel.UserData.get(i).getName().equals(user.getName())) && (dataModel.UserData.get(i).getPass().equals(user.getPass())) && (dataModel.UserData.get(i).getRole().contentEquals(user.getRole()))) {
 						getFrame().dispose();
 						
-						if (user.getRole() == Constants.admin) {
-							
-							Admin us = new Admin(user.getName(), user.getRole(), Constants.admin);
-							us.dataModel = dataModel;
-							
-							Admin_Window adminSys = new Admin_Window((Admin) us);
+						if (dataModel.UserData.get(i).getRole() == Constants.admin) {
+							Admin us = (Admin) dataModel.UserData.get(i);
+							Admin_Window adminSys = new Admin_Window(us);
 							adminSys.setVisible(true);
 						}
 						
-						if (user.getRole() == Constants.doctor) {
-							
-							Doctor us = new Doctor(user.getName(), user.getRole(), Constants.doctor);
-							
-							Doctor_Window doctorSys = new Doctor_Window((Doctor) us);
+						if (dataModel.UserData.get(i).getRole() == Constants.doctor) {
+							Doctor us = (Doctor) dataModel.UserData.get(i);
+							Doctor_Window doctorSys = new Doctor_Window(us);
 							doctorSys.setVisible(true);
 						}
 						
-						if (user.getRole() == Constants.nurse) {
-
-							Nurse us = new Nurse(user.getName(), user.getRole(), Constants.nurse);
-							
-							Nurse_Window nurseSys = new Nurse_Window((Nurse) us);
+						if (dataModel.UserData.get(i).getRole() == Constants.nurse) {
+							Nurse us = (Nurse) dataModel.UserData.get(i);
+							Nurse_Window nurseSys = new Nurse_Window(us);
 							nurseSys.setVisible(true);
 						}
 						
-						if (user.getRole() == Constants.patient) {
-							
-							Patient us = new Patient(user.getName(), user.getRole(), Constants.patient);
-							
-							Patient_Window patientSys = new Patient_Window((Patient) us);
+						if (dataModel.UserData.get(i).getRole() == Constants.patient) {
+							Patient us = (Patient) dataModel.UserData.get(i);
+							Patient_Window patientSys = new Patient_Window(us);
 							patientSys.setVisible(true);
 						}
+						
+						
+//						if (user.getRole() == Constants.admin) {
+//							
+//							Admin us = new Admin(user.getName(), user.getRole(), Constants.admin);
+//							us.dataModel = dataModel;
+//							
+//							Admin_Window adminSys = new Admin_Window((Admin) us);
+//							adminSys.setVisible(true);
+//						}
+//						
+//						if (user.getRole() == Constants.doctor) {
+//							
+//							Doctor us = new Doctor(user.getName(), user.getRole(), Constants.doctor);
+//							
+//							Doctor_Window doctorSys = new Doctor_Window((Doctor) us);
+//							doctorSys.setVisible(true);
+//						}
+//						
+//						if (user.getRole() == Constants.nurse) {
+//
+//							Nurse us = new Nurse(user.getName(), user.getRole(), Constants.nurse);
+//							
+//							Nurse_Window nurseSys = new Nurse_Window((Nurse) us);
+//							nurseSys.setVisible(true);
+//						}
+//						
+//						if (user.getRole() == Constants.patient) {
+//							
+//							Patient us = new Patient(user.getName(), user.getRole(), Constants.patient);
+//							
+//							Patient_Window patientSys = new Patient_Window((Patient) us);
+//							patientSys.setVisible(true);
+//						}
 
 						if (user != null)
 							found = true;

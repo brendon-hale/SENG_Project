@@ -8,6 +8,9 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Data_Sys.Constants;
+import Data_Sys.Test_Results;
+import Data_Sys.Test_Types;
 import Login_Sys.Data_Model;
 import Login_Sys.Login_System;
 import Login_Sys.User_Provider;
@@ -51,16 +54,17 @@ public class Doctor extends User {
 			
 			Test_Results.testResults.add(tests);				
 			
-			// Temporary print out of ArrayList of Patients
-			System.out.println(Arrays.deepToString(Data_Model.getPatients().toArray()));
+			ArrayList<Patient> myPatients = Data_Model.getPatients();
 			
-			for (int i = 0; i < Data_Model.getPatients().size(); i++) {
-				if (Data_Model.getPatients().get(i).getName() == patientName) {
+			for (int i = 0; i < myPatients.size(); i++) {
+				if (myPatients.get(i).getName() == patientName) {
 					try {
-						Patient patient1 = Data_Model.getPatients().get(i);
+						Patient patient1 = myPatients.get(i);
 						patient1.addTestResults(tests);
 						
-//						Data_Model.getPatients().get(i).addTestResults(tests);
+						System.out.println("Doctor/Patient testResults: " + patient1.getTestResults());
+						
+						break;
 					}
 					catch(NullPointerException e) {
 						System.out.println("NullPointerException thrown!");
@@ -68,21 +72,9 @@ public class Doctor extends User {
 				}
 			}
 			
-			
-			
-			
-			
 			// Temporary print out of ArrayList of testResults
 			System.out.println(Arrays.deepToString(Test_Results.testResults.toArray()));
 		
 		}
 	}
-	
-		
-	
-	// To Implement
-	
-	//private Schedule schedule;
-	//private String department;
-	
 }

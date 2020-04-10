@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Data_Sys.Constants;
 import Login_Sys.Data_Model;
 import Login_Sys.Login_System;
 import Login_Sys.User_Provider;
@@ -42,7 +43,6 @@ public class Admin extends User {
 			
 			User newUser = null;
 			
-			// Should be made into a switch
 			if (role == Constants.admin)
 				newUser = new Admin(name, password, role);
 			

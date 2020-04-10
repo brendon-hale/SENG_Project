@@ -2,7 +2,7 @@ package Login_Sys;
 
 import java.util.ArrayList;
 
-import Mgmt_Sys.Constants;
+import Data_Sys.Constants;
 import Mgmt_Sys.Patient;
 import Mgmt_Sys.User;
 

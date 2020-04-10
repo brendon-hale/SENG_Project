@@ -1,0 +1,28 @@
+To Do
+
+Admin
+- assign doctors to department
+
+
+
+
+Doctor
+- update patient test results
+- update schedule
+- confirm appointments
+
+
+
+
+
+Nurse
+- view doctors schedule
+
+
+
+
+
+Patient
+- complete test results viewing
+- implement schedule
+- implement booking appointment

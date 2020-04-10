@@ -1,6 +1,8 @@
-package Mgmt_Sys;
+package Data_Sys;
 
 import java.util.ArrayList;
+
+import Mgmt_Sys.Patient;
 
 public class Patient_List {
 

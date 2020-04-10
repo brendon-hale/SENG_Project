@@ -1,4 +1,4 @@
-package Mgmt_Sys;
+package Data_Sys;
 
 public class Constants {
 
@@ -8,7 +8,7 @@ public class Constants {
 	public static String patient = "Patient";
 	
 	public static String bp = "Blood Pressure";
-	public static String cancer = "Cancer";
+	public static String cancer = "Cancer\t";
 	public static String cardiovascular = "Cardiovascular";
 	public static String urineAnalysis = "Urine Analysis";
 	
