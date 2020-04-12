@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Data_Sys.Constants;
-import Login_Sys.Data_Model;
+import Data_Sys.Data_Model;
+import Data_Sys.User_Provider;
 import Login_Sys.Login_System;
-import Login_Sys.User_Provider;
 
 public class Admin extends User {
 

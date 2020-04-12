@@ -1,5 +1,9 @@
 package Mgmt_Sys;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,11 +13,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Data_Sys.Constants;
+import Data_Sys.Data_Model;
 import Data_Sys.Test_Results;
 import Data_Sys.Test_Types;
-import Login_Sys.Data_Model;
+import Data_Sys.User_Provider;
 import Login_Sys.Login_System;
-import Login_Sys.User_Provider;
 
 public class Doctor extends User {
 
@@ -22,11 +26,11 @@ public class Doctor extends User {
 	}
 	
 	public void generateTest() {
-		User patient;
+//		User patient;
 		
 		Data_Model dataModel = Login_System.dataModel;
 		
-		JComboBox patients = new JComboBox();
+		JComboBox<String> patients = new JComboBox<String>();
 		
 		// Create a list of patients
 		for (int i = 0; i < dataModel.UserData.size(); i++) {
@@ -35,8 +39,8 @@ public class Doctor extends User {
 		}
 		
 		// Fill combobox w/ Test_Types
-		JComboBox testSelect = new JComboBox();
-		testSelect.setModel(new DefaultComboBoxModel(Test_Types.getTypes()));
+		JComboBox<String> testSelect = new JComboBox<String>();
+		testSelect.setModel(new DefaultComboBoxModel<String>(Test_Types.getTypes()));
 		
 		Object [] fields = {
 				"Select Patient:", patients,
@@ -61,9 +65,6 @@ public class Doctor extends User {
 					try {
 						Patient patient1 = myPatients.get(i);
 						patient1.addTestResults(tests);
-						
-						System.out.println("Doctor/Patient testResults: " + patient1.getTestResults());
-						
 						break;
 					}
 					catch(NullPointerException e) {
@@ -71,10 +72,64 @@ public class Doctor extends User {
 					}
 				}
 			}
-			
-			// Temporary print out of ArrayList of testResults
-			System.out.println(Arrays.deepToString(Test_Results.testResults.toArray()));
+		}
+	}
+	
+	@SuppressWarnings("null")
+	public void updateTestResults() {
+		Data_Model dataModel = Login_System.dataModel;
 		
+		JComboBox<Patient> patients;
+		JComboBox<String> testSelect = new JComboBox<String>();
+		JComboBox<String> testUpdate;
+		
+		// Create a list of patients
+		patients = new JComboBox<Patient>();
+		for (int i = 0; i < dataModel.UserData.size(); i++) {
+			if(dataModel.UserData.get(i).getRole() == Constants.patient)
+				patients.addItem((Patient) dataModel.UserData.get(i));
+		}
+		
+		// Update testSelect based on patient selected
+		ActionListener actionListener = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Patient patientSelected = (Patient) patients.getSelectedItem();
+				testSelect.removeAllItems();
+				
+				for (int i = 0; i < patientSelected.getTestResults().size(); i++) {
+					testSelect.addItem(patientSelected.getTestResults().get(i).getTest());
+				}
+			}
+		};
+		
+		patients.addActionListener(actionListener);
+		
+		// Option to update test
+		testUpdate = new JComboBox<String>();
+		testUpdate.setModel(new DefaultComboBoxModel<String>(Test_Types.getResults()));
+		
+		Object [] fields = {
+				"Select Patient:", patients,
+				"Select Test to Update:", testSelect,
+				"Select Test Result:",testUpdate
+		};
+		
+		int option = JOptionPane.showConfirmDialog(null, fields, "Updating Test", JOptionPane.OK_CANCEL_OPTION);
+		
+		if (option == JOptionPane.OK_OPTION) {
+			Patient patientName = (Patient) patients.getSelectedItem();
+			String testSelected = testSelect.getSelectedItem().toString();
+			String results = testUpdate.getSelectedItem().toString();
+			
+			for (int i = 0; i < patientName.getTestResults().size(); i++) {
+				if (patientName.getTestResults().get(i).getTest() == testSelected) {
+					Tests newTest = patientName.getTestResults().get(i);
+					newTest.updateResult(results);
+					System.out.println(patientName.getTestResults().get(i).toString());
+				}
+			}
 		}
 	}
 }

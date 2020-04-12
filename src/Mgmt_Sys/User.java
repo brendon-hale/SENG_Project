@@ -1,6 +1,6 @@
 package Mgmt_Sys;
 
-import Login_Sys.Data_Model;
+import Data_Sys.Data_Model;
 
 public class User {
 	

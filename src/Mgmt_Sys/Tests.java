@@ -24,7 +24,13 @@ public class Tests {
 		return result;
 	}
 	
+	public void updateResult(String result) {
+		this.result = result;
+	}
+	
 	public String toString() {
+		if (test == null)
+			test = "No Tests Pending";
 		return patientName + ": " + test + "\t- " + result;
 	}
 

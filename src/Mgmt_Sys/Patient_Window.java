@@ -70,7 +70,7 @@ public class Patient_Window extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
-		textArea.setBounds(35, 117, 407, 128);
+		textArea.setBounds(35, 117, 472, 128);
 		textArea.append(user.printTestResults());
 		contentPane.add(textArea);
 		
