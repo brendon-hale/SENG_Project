@@ -20,15 +20,3 @@ public class Data_Model {
 	}
 	
 }
-
-
-
-//public static ArrayList<User> getPatients(){
-//	ArrayList<User> patient = new ArrayList<User>();
-//	for (int i = 0; i < UserData.size(); i++) {
-//		if (UserData.get(i).getRole() == Constants.patient) {
-//			patient.add(UserData.get(i));
-//		}
-//	}
-//return patient;
-//}

@@ -77,5 +77,14 @@ public class Doctor_Window extends JFrame {
 		});
 		btn_reviewTest.setBounds(159, 363, 121, 51);
 		contentPane.add(btn_reviewTest);
+		
+		JButton btn_viewTests = new JButton("View Test Results");
+		btn_viewTests.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				user.viewTestResults();
+			}
+		});
+		btn_viewTests.setBounds(306, 363, 121, 51);
+		contentPane.add(btn_viewTests);
 	}
 }

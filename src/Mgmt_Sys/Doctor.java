@@ -9,7 +9,10 @@ import java.util.Arrays;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import Data_Sys.Constants;
@@ -127,9 +130,30 @@ public class Doctor extends User {
 				if (patientName.getTestResults().get(i).getTest() == testSelected) {
 					Tests newTest = patientName.getTestResults().get(i);
 					newTest.updateResult(results);
-					System.out.println(patientName.getTestResults().get(i).toString());
 				}
 			}
 		}
+		System.out.println(Test_Results.testResults);
 	}
+	
+	public void viewTestResults() {
+		JFrame frame = new JFrame("Patient Test Results");
+		JPanel mainframe = new JPanel();
+		
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		frame.setBounds(0,0,200,200);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		
+		mainframe.add(textArea);
+		
+		textArea.append(Test_Results.testResults.toString());
+		
+		frame.getContentPane().add(mainframe);
+		frame.pack();
+		frame.setVisible(true);
+	}
+
+	
 }
