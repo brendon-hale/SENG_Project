@@ -1,0 +1,26 @@
+To Do
+
+Admin
+- assign doctors to department
+
+
+
+
+Doctor
+- update schedule
+- confirm appointments
+
+
+
+
+
+Nurse
+- view doctors schedule
+
+
+
+
+
+Patient
+- implement schedule
+- implement booking appointment
