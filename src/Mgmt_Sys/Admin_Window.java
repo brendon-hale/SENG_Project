@@ -50,7 +50,7 @@ public class Admin_Window extends JFrame {
 			}
 		});
 		
-		btn_Logout.setBounds(649, 343, 89, 23);
+		btn_Logout.setBounds(656, 343, 89, 23);
 		contentPane.add(btn_Logout);
 		
 		JLabel lbl_Access = new JLabel("Accessing System as: " + user.getRole(), SwingConstants.CENTER);
@@ -63,12 +63,30 @@ public class Admin_Window extends JFrame {
 				user.addUser();
 			}
 		});
-		btn_AddUser.setBounds(56, 317, 118, 49);
+		btn_AddUser.setBounds(40, 317, 118, 49);
 		contentPane.add(btn_AddUser);
 		
 		JLabel lbl_Welcome = new JLabel("Welcome " + user.getName(), SwingConstants.CENTER);
 		lbl_Welcome.setBounds(254, 47, 242, 14);
 		contentPane.add(lbl_Welcome);
+		
+		JButton btn_viewDepart = new JButton("Departments");
+		btn_viewDepart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				user.viewDepartments();
+			}
+		});
+		btn_viewDepart.setBounds(193, 317, 118, 49);
+		contentPane.add(btn_viewDepart);
+		
+		JButton btn_assignDoctor = new JButton("Assign Doctor");
+		btn_assignDoctor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				user.assignDoctor();
+			}
+		});
+		btn_assignDoctor.setBounds(347, 317, 118, 49);
+		contentPane.add(btn_assignDoctor);
 		
 	}
 }

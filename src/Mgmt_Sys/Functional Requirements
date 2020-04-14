@@ -7,7 +7,6 @@ Admin
 
 
 Doctor
-- update patient test results
 - update schedule
 - confirm appointments
 
@@ -23,6 +22,5 @@ Nurse
 
 
 Patient
-- complete test results viewing
 - implement schedule
 - implement booking appointment

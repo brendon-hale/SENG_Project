@@ -23,16 +23,28 @@ import Data_Sys.User_Provider;
 import Login_Sys.Login_System;
 
 public class Doctor extends User {
+	
+	private Department department;
+	
+	public Data_Model dataModel;
 
 	public Doctor(String name, String password, String role) {
 		super(name, password, role);
 	}
 	
+	public Department getDepartment() {
+		return department;
+	}
+	
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	
+	public String toString() {
+		return getName();
+	}
+	
 	public void generateTest() {
-//		User patient;
-		
-		Data_Model dataModel = Login_System.dataModel;
-		
 		JComboBox<String> patients = new JComboBox<String>();
 		
 		// Create a list of patients
@@ -80,8 +92,6 @@ public class Doctor extends User {
 	
 	@SuppressWarnings("null")
 	public void updateTestResults() {
-		Data_Model dataModel = Login_System.dataModel;
-		
 		JComboBox<Patient> patients;
 		JComboBox<String> testSelect = new JComboBox<String>();
 		JComboBox<String> testUpdate;
@@ -133,7 +143,6 @@ public class Doctor extends User {
 				}
 			}
 		}
-		System.out.println(Test_Results.testResults);
 	}
 	
 	public void viewTestResults() {
@@ -141,7 +150,7 @@ public class Doctor extends User {
 		JPanel mainframe = new JPanel();
 		
 		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		frame.setBounds(0,0,200,200);
+		frame.setResizable(false);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);

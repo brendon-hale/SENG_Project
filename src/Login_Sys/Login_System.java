@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import Data_Sys.Constants;
 import Data_Sys.Data_Model;
+import Data_Sys.Department_Provider;
 import Data_Sys.Patient_List;
 import Data_Sys.User_Provider;
 import Mgmt_Sys.Admin;
@@ -74,7 +75,9 @@ public class Login_System {
 		if (dataModel == null) {
 			dataModel = new Data_Model();
 			User_Provider provider = new User_Provider();
+			Department_Provider dept = new Department_Provider();
 			dataModel.UserData = provider.getUserData();
+			dataModel.DepartmentData = dept.getDepartmentData();
 		}
 		
 		frame = new JFrame();
@@ -131,6 +134,7 @@ public class Login_System {
 						if (dataModel.UserData.get(i).getRole() == Constants.doctor) {
 							Doctor us = (Doctor) dataModel.UserData.get(i);
 							Doctor_Window doctorSys = new Doctor_Window(us);
+							us.dataModel = dataModel;
 							doctorSys.setVisible(true);
 						}
 						

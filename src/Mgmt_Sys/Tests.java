@@ -30,8 +30,9 @@ public class Tests {
 	
 	public String toString() {
 		if (test == null)
-			test = "No Tests Pending";
-		return patientName + ": " + test + "\t- " + result + "\n";
+			return "No Tests Pending";
+		else
+			return patientName + ": " + test + "\t- " + result + "\n";
 	}
-
+	
 }

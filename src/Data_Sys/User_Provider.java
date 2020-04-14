@@ -20,8 +20,9 @@ public class User_Provider {
 		Nurse obj5 = new Nurse("Scuba Steve", "guest", Constants.nurse);
 		Patient obj6 = new Patient("Bob", "guest", Constants.patient);
 		Patient obj7 = new Patient("Calvin", "hobbes", Constants.patient);
+		Doctor obj8 = new Doctor("Greg House", "guest", Constants.doctor);
 		
-		ArrayList<User> list = new ArrayList<>(Arrays.asList(obj1, obj2, obj3, obj4, obj5, obj6, obj7));
+		ArrayList<User> list = new ArrayList<>(Arrays.asList(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8));
 		
 		return list;
 	}
